@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Okan Berhoglu" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,200&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="CSS/main.css" />
+    <title>Okan Berhoglu</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="./JS/three.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <div class="wrapper">
+          <div class="left">
+            <a href="#home" class="logo">
+              <div>
+                <span>O</span>
+                <span>K</span>
+                <span>A</span>
+                <span>N</span>
+              </div>
+              <div>
+                <span>B</span>
+                <span>E</span>
+                <span>R</span>
+                <span>H</span>
+                <span>O</span>
+                <span>Ğ</span>
+                <span>L</span>
+                <span>U</span>
+              </div>
+            </a>
+            <div class="itemContainer">
+              <span>+90 535 063 7001</span>
+            </div>
+            <div class="itemContainer">
+              <span>okanberh@gmail.com</span>
+            </div>
+          </div>
+          <div class="right">
+            <div class="hamburger" onclick="menuOpen()">
+              <span className="line1"></span>
+              <span className="line2"></span>
+              <span className="line3"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <sction id="menu">
+      <div class="menu">
+        <ul>
+          <li onclick="menuOpen()">
+            <a href="#home">Home</a>
+          </li>
+          <li onclick="menuOpen()">
+            <a href="#aboutMe">About Me</a>
+          </li>
+          <li onclick="menuOpen()">
+            <a href="#skills">Skills</a>
+          </li>
+          <li onclick="menuOpen()">
+            <a href="#experiences">Experiences</a>
+          </li>
+          <li onclick="menuOpen()">
+            <a href="#projects">Projects</a>
+          </li>
+          <li onclick="menuOpen()">
+            <a href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </sction>
+    <section id="home">
+      <div class="home">
+        <canvas id="canvas"></canvas>
+        <div class="hello">
+          <h1 class="alpha">H</h1>
+          <h1 class="alpha">e</h1>
+          <h1 class="alpha">l</h1>
+          <h1 class="alpha">l</h1>
+          <h1 class="alpha">o</h1>
+          <h1 class="alpha">,</h1>
+          <span class="Iam">
+            <h1 class="alpha">I</h1>
+            <h1 class="alpha">'</h1>
+            <h1 class="alpha">m</h1>
+          </span>
+        </div>
+        <br />
+        <div class="nameBox">
+          <span class="name">
+            <h1 class="alpha">O</h1>
+            <h1 class="alpha">K</h1>
+            <h1 class="alpha">A</h1>
+            <h1 class="alpha">N</h1>
+          </span>
+          <span class="lastName">
+            <h1 class="alpha">B</h1>
+            <h1 class="alpha">E</h1>
+            <h1 class="alpha">R</h1>
+            <h1 class="alpha">H</h1>
+            <h1 class="alpha">O</h1>
+            <h1 class="alpha">Ğ</h1>
+            <h1 class="alpha">L</h1>
+            <h1 class="alpha">U</h1>
+          </span>
+        </div>
+        <div class="roleContainer">
+          <div class="roles">
+            <div><div>Jr. Fullstack Developer</div></div>
+            <div><div>Mechanical Engineering Student</div></div>
+          </div>
+        </div>
+        <div class="getResumeButton">
+          <a
+            href="./assets/Resume_OkanBerhoglu.pdf"
+            download="Resume_OkanBerhoglu.pdf"
+          >
+            <button>Get Resume</button>
+          </a>
+        </div>
+        <a href="#aboutMe" class="down">
+          <img src="./assets/down.png" />
+        </a>
+      </div>
+      <script src="./JS/mouseTrail.js"></script>
+    </section>
+    <section id="aboutMe">
+      <div class="about">
+        <div class="left">
+          <div class="caption reveal">
+            <span class="me">
+              <h1 class="alpha">M</h1>
+              <h1 class="alpha">e</h1>
+              <h1 class="alpha">,</h1>
+            </span>
+            <span class="myself">
+              <h1 class="alpha">M</h1>
+              <h1 class="alpha">y</h1>
+              <h1 class="alpha">s</h1>
+              <h1 class="alpha">e</h1>
+              <h1 class="alpha">l</h1>
+              <h1 class="alpha">f</h1>
+            </span>
+            <span class="and">
+              <h1 class="alpha">&</h1>
+            </span>
+            <span class="ben">
+              <h1 class="alpha">I</h1>
+            </span>
+            <br />
+          </div>
+          <div class="profile reveal">
+            <p>
+              &nbsp; &nbsp; &nbsp;Computer programming and producing something
+              in the computer environment is a hobby for me, I develop myself in
+              the field of software. Also, as a mechanical engineering student,
+              I am interested in working on mechanical design topic. I am
+              someone who constantly wants to improve himself in various
+              subjects. I am highly motivated and eager to learn.
+            </p>
+          </div>
+        </div>
+        <div class="right reveal">
+          <script>
+            var scene = new THREE.Scene();
+            var camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight);
+            var renderer = new THREE.WebGLRenderer({ antialias: true});
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.getElementsByClassName('about > right').appendChild(renderer.domElement);
+            
+            var geometry = new THREE.BoxGeometry( 1, 1, 1);
+      var material = new THREE.MeshBasicMaterial( { color: 0x0000ff } );
+      var cube = new THREE.Mesh( geometry, material );
+      scene.add( cube );
+          </script>
+        </div>
+      </div>
+    </section>
+    <section id="skills">
+      <div class="skills">
+        <div class="caption reveal">
+          <h1 class="alpha">S</h1>
+          <h1 class="alpha">K</h1>
+          <h1 class="alpha">I</h1>
+          <h1 class="alpha">L</h1>
+          <h1 class="alpha">L</h1>
+          <h1 class="alpha">S</h1>
+        </div>
+        <div class="content">
+          <div class="card reveal">
+            <div class="skill">
+              <div class="left">
+                <span>C#</span>
+                <div class="level">
+                  <img src="./assets/starFull.png" />
+                  <img src="./assets/starFull.png" />
+                  <img src="./assets/starFull.png" />
+                  <img src="./assets/starFull.png" />
+                  <img src="./assets/HollowStar.png" />
+                </div>
+              </div>
+              <div class="right">
+                <img src="./assets/C-Sharp.png" />
+              </div>
+            </div>
+            <div class="skill">
+              <div class="left">
+                <span>Matlab</span>
+                <div class="level">
+                  <img src="./assets/starFull.png" />
+                  <img src="./assets/starFull.png" />
+                  <img src="./assets/starFull.png" />
+                  <img src="./assets/starFull.png" />
+                  <img src="./assets/HollowStar.png" />
+                </div>
+              </div>
+              <div class="right">
+                <img src="./assets/matlab.png" class="wide" />
+              </div>
+            </div>
+            <div class="skill">
+              <div class="left">
+                <span>React js</span>
+                <div class="level">
+                  <img src="./assets/starFull.png" />
+                  <img src="./assets/starFull.png" />
+                  <img src="./assets/starFull.png" />
+                  <img src="./assets/HollowStar.png" />
+                  <img src="./assets/HollowStar.png" />
+                </div>
+              </div>
+              <div class="right">
+                <img src="./assets/React.png" />
+              </div>
+            </div>
+            <div class="skill">
+              <div class="left">
+                <span>Java</span>
+                <div class="level">
+                  <img src="./assets/starFull.png" />
+                  <img src="./assets/starFull.png" />
+                  <img src="./assets/starFull.png" />
+                  <img src="./assets/HollowStar.png" />
+                  <img src="./assets/HollowStar.png" />
+                </div>
+              </div>
+              <div class="right">
+                <img src="./assets/java.png" />
+              </div>
+            </div>
+            <div class="skill">
+              <div class="left">
+                <span>React Native</span>
+                <div class="level">
+                  <img src="./assets/starFull.png" />
+                  <img src="./assets/starFull.png" />
+                  <img src="./assets/HollowStar.png" />
+                  <img src="./assets/HollowStar.png" />
+                  <img src="./assets/HollowStar.png" />
+                </div>
+              </div>
+              <div class="right">
+                <img src="./assets/React.png" />
+              </div>
+            </div>
+            <div class="skill">
+              <div class="left">
+                <span>Python</span>
+                <div class="level">
+                  <img src="./assets/starFull.png" />
+                  <img src="./assets/starFull.png" />
+                  <img src="./assets/HollowStar.png" />
+                  <img src="./assets/HollowStar.png" />
+                  <img src="./assets/HollowStar.png" />
+                </div>
+              </div>
+              <div class="right">
+                <img src="./assets/Python.png" />
+              </div>
+            </div>
+            <div class="skill">
+              <div class="left">
+                <span>SolidWorks</span>
+                <div class="level">
+                  <img src="./assets/starFull.png" />
+                  <img src="./assets/starFull.png" />
+                  <img src="./assets/starFull.png" />
+                  <img src="./assets/starFull.png" />
+                  <img src="./assets/HollowStar.png" />
+                </div>
+              </div>
+              <div class="right">
+                <img src="./assets/SolidWorks_Logo.png" class="wide" />
+              </div>
+            </div>
+          </div>
+          <div class="certificates reveal">
+            <div
+              class="panel active"
+              style="background-image: url('./assets/JavaCertifica.png')"
+            >
+              <h3>Java</h3>
+            </div>
+            <div
+              class="panel"
+              style="background-image: url('./assets/CsharpHackerrank.jpg')"
+            >
+              <h3>C#</h3>
+            </div>
+            <div
+              class="panel"
+              style="background-image: url('./assets/IntroductionToML.jpg')"
+            >
+              <h3>Machine Learning</h3>
+            </div>
+
+            <div
+              class="panel"
+              style="background-image: url('./assets/PythonForDataScience.jpg')"
+            >
+              <h3>Python</h3>
+            </div>
+            <div
+              class="panel"
+              style="background-image: url('./assets/MATLABOnramp.jpg')"
+            >
+              <h3>Matlab</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script src="./JS/certificates.js"></script>
+    </section>
+    <section id="experiences">
+      <div class="experiences">
+        <h1 class="reveal">EXPERIENCES</h1>
+        <div class="experienceContainer">
+          <div class="item reveal">
+            <img />
+            <h3>Anova R&D</h3>
+            <p>
+              Worked in the manufacturing process. And worked on process
+              improvement in manufacturing. Participated in the mold design
+              project
+            </p>
+            <a href="https://anova.com.tr/?lang=en" target="_blank">Website</a>
+          </div>
+          <div class="item reveal">
+            <img />
+            <h3>Teknopar</h3>
+            <p>
+              Worked in the manufacturing process. And worked on process
+              improvement in manufacturing. Participated in the mold design
+              project
+            </p>
+            <a href="https://teknopar.com.tr/en" target="_blank">Website</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="projects">
+      <div class="projects">
+        <h1 class="reveal">PROJECTS</h1>
+        <div class="projectContainer reveal">
+          <div class="item">
+            <img src="./assets/CSImg.jpg" />
+            <h3>Shopping website backend</h3>
+          </div>
+          <div class="item">
+            <img src="./assets/CSImg.jpg" />
+            <h3>Rent a car website backend</h3>
+          </div>
+          <div class="item">
+            <img src="./assets/MatlabIMG.jpg" />
+            <h3>PC Holder Design Matlab App</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="contact">
+      <div class="contact">
+        <div class="contactContainer reveal">
+          <div class="left">
+            <div class="social"></div>
+            <div class="map"></div>
+          </div>
+          <div class="right">
+            <div class="container">
+              <div class="caption">
+                <span class="mail">
+                  <h1 class="alpha">M</h1>
+                  <h1 class="alpha">a</h1>
+                  <h1 class="alpha">i</h1>
+                  <h1 class="alpha">l</h1>
+                </span>
+                <span class="me">
+                  <h1 class="alpha">M</h1>
+                  <h1 class="alpha">e</h1>
+                </span>
+              </div>
+              <form class="form">
+                <input type="text" placeholder="Email" />
+                <textarea placeholder="Message"></textarea>
+                <button type="submit">Send</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="./JS/letterHover.js"></script>
+    <script src="./JS/reveal.js"></script>
+    <script src="./JS/menuOpen.js"></script>
+  </body>
+</html>
