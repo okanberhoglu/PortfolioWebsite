@@ -5,11 +5,11 @@ const width = document.getElementById("aboutThree").parentElement.clientWidth/2;
 const height = document.getElementById("aboutThree").parentElement.clientHeight;
 
 const scene = new THREE.Scene();
-scene.background = new THREE.Color( 0x0f1729 );
 
 const camera = new THREE.PerspectiveCamera(45, height / width, 0.1, 2000);
-const renderer = new THREE.WebGLRenderer();
+const renderer = new THREE.WebGLRenderer({alpha: true });
 renderer.setSize(width, height);
+renderer.setClearColor( 0x000000, 0 );
 document.getElementById("aboutThree").appendChild(renderer.domElement);
 
 const geometry = new THREE.TorusGeometry(20,4,16,100,10);

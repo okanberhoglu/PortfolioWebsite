@@ -269,20 +269,20 @@ body {
   overflow-x: visible;
 }
 
-.home #contactCard {
+.home #threeCube {
   position: absolute;
-  top: 20%;
+  top: 15%;
   right: 0;
   width: 600px;
   height: 500px;
   overflow: hidden;
 }
 
-.home #contactCard:hover {
+.home #threeCube:hover {
   cursor: grab;
 }
 
-.home #contactCard:active {
+.home #threeCube:active {
   cursor: grabbing;
 }
 
