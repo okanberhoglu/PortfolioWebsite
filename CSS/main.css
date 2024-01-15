@@ -313,7 +313,7 @@ body {
   }
 
   .home #contactCard {
-    opacity: 0;
+    display: none;
   }
 }
 
@@ -676,11 +676,31 @@ body {
   flex: 2;
   color: whitesmoke;
   display: flex;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
+  flex-direction: row;
   overflow: hidden;
   margin-top: 62px;
+}
+
+.skills .caption h1{
+  overflow: hidden;
+}
+
+.skills .caption .skillsCaption{
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+.skills .caption .certitifications{
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+.skills .caption .and{
+  margin-left: 1em;
+  margin-right: 1em;
+  overflow: hidden;
 }
 
 .skills .caption h1 {
@@ -806,6 +826,14 @@ body {
 
 @media only screen and (max-width: 750px) {
   .skills .content .certificates {
+    display: none;
+  }
+
+  .skills .caption .certitifications{
+    display: none;
+  }
+
+  .skills .caption .and{
     display: none;
   }
 
