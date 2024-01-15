@@ -312,7 +312,7 @@ body {
     font-size: 27px;
   }
 
-  .home #contactCard {
+  .home #threeCube {
     display: none;
   }
 }
@@ -681,10 +681,6 @@ body {
   margin-top: 62px;
 }
 
-.skills .caption h1{
-  overflow: hidden;
-}
-
 .skills .caption .skillsCaption{
   display: flex;
   flex-direction: row;
@@ -707,6 +703,7 @@ body {
   font-size: 80px;
   cursor: context-menu;
   transition: color 0.4s ease-in-out;
+  overflow: hidden;
 }
 
 .skills .caption .animated {
