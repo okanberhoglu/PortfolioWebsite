@@ -6,7 +6,6 @@ const height = document.getElementById("contactCard").clientHeight;
 
 const scene = new THREE.Scene();
 
-
 const camera = new THREE.PerspectiveCamera(35, height / width, 0.1, 2000);
 const renderer = new THREE.WebGLRenderer({alpha: true, antialias: true});
 renderer.setSize(width, height);
@@ -15,7 +14,7 @@ document.getElementById("contactCard").appendChild(renderer.domElement);
 
 const geometry = new THREE.BoxGeometry(13, 10, 0.5);
 
-const texture = new THREE.TextureLoader().load("../assets/card.jpg");
+const texture = new THREE.TextureLoader().load("../assets/card.png");
 
 const material = [
     new THREE.MeshLambertMaterial( {color: 0x365486 }),
