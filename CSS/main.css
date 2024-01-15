@@ -11,14 +11,10 @@ body {
 }
 
 .sections {
-  scroll-snap-type: y mandatory; /* bu kısım çalışmıyor bak buna */
   overflow: auto;
-  scroll-behavior: smooth;
 }
 
 .sections section {
-  scroll-snap-align: start;
-  height: 100vh - 60px;
   width: 100%;
   background-color: #0f1729;
 }
