@@ -496,9 +496,6 @@ body {
   .about .left .profile {
     margin-right: 40px;
   }
-  .about{
-    flex-direction: column;
-  }
 }
 
 @media only screen and (max-width: 1341px) {

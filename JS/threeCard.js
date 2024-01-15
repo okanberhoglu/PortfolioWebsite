@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { OrbitControls } from "../modules/three/examples/jsm/controls/OrbitControls.js";
+import { OrbitControls } from "./three/examples/jsm/controls/OrbitControls.js";
 
 const width = document.getElementById("contactCard").clientWidth;
 const height = document.getElementById("contactCard").clientHeight; 
