@@ -15,7 +15,7 @@ document.getElementById("contactCard").appendChild(renderer.domElement);
 
 const geometry = new THREE.BoxGeometry(13, 10, 0.5);
 
-const texture = new THREE.TextureLoader().load("./card.jpg");
+const texture = new THREE.TextureLoader().load("../assets/card.jpg");
 
 const material = [
     new THREE.MeshLambertMaterial( {color: 0x365486 }),
