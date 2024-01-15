@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { OrbitControls } from "../node_modules/three/examples/jsm/controls/OrbitControls.js";
+import { OrbitControls } from  "https://github.com/okanberhoglu/PortfolioWebsite/blob/master/node_modules/three/examples/jsm/controls/OrbitControls.js";
 
 const width = document.getElementById("aboutThree").parentElement.clientWidth/2;
 const height = document.getElementById("aboutThree").parentElement.clientHeight;
