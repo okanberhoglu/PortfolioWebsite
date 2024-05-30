@@ -6,6 +6,10 @@
   overflow-x: hidden;
 }
 
+a {
+  text-decoration: none;
+}
+
 body {
   background-color: #0f1729;
 }
@@ -123,7 +127,7 @@ body {
 /*----------------------------------------------- Home ------------------------------*/
 
 .home {
-  background-color: #efefef;
+  background-color: #0f1729;
   overflow: hidden;
   width: 100%;
   overflow: hidden;
@@ -144,6 +148,7 @@ body {
   position: absolute;
   top: 24%;
   left: 3%;
+  color: #e7f6f2;
 }
 
 .home .nameBox {
@@ -157,14 +162,14 @@ body {
 
 .home .nameBox .name {
   display: flex;
-  color: #0f9cdd;
+  color: #e7f6f2;
   font-weight: 700;
   overflow: hidden;
 }
 
 .home .nameBox .lastName {
   display: flex;
-  color: #2155cd;
+  color: #e7f6f2;
   font-weight: 700;
   margin-left: 2em;
   overflow: hidden;
@@ -198,31 +203,20 @@ body {
 
 .home .getResumeButton a button {
   border-width: 0.2em;
-  border-radius: 40px;
+  border-radius: 20px;
   font-size: 1.2em;
   padding: 20px;
   cursor: pointer;
   transition: all 0.5s ease;
-  background-color: #efefef;
+  background-color: #b4d4ff;
+  color: black;
+  border-color: #0f1729;
 }
 
 .home .getResumeButton a button:hover {
-  background-color: #15133c;
+  background-color: #0f9cdd;
   color: white;
-}
-
-.home .down {
-  margin-left: 300px;
-  color: #222831;
-  position: absolute;
-  bottom: 10px;
-  right: 15%;
-  animation: arrowBlink 2s infinite;
-}
-
-.home .down img {
-  width: 4.7em;
-  height: 4.7em;
+  cursor: pointer;
 }
 
 .home .roleContainer {
@@ -232,6 +226,7 @@ body {
   margin-top: 40px;
   overflow: hidden;
   height: 50px;
+  color: #e7f6f2;
 }
 
 .home .roleContainer .roles {
@@ -255,21 +250,49 @@ body {
   overflow-x: visible;
 }
 
-.home #threeCube {
+.home .contactCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   position: absolute;
-  top: 15%;
-  right: 0;
-  width: 600px;
-  height: 500px;
-  overflow: hidden;
+  top: 25%;
+  right: 6%;
+  background-color: #b4d4ff;
+  width: 30em;
+  height: 20em;
+  align-items: center;
+  border-radius: 25px;
+  color: black;
 }
 
-.home #threeCube:hover {
-  cursor: grab;
+.home .contactCard .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 23em;
+  height: 10em;
+  background-color: aliceblue;
+  border-radius: 15px;
 }
 
-.home #threeCube:active {
-  cursor: grabbing;
+.home .contactCard .card div {
+  display: flex;
+  flex-direction: row;
+}
+
+.home .contactCard .email img {
+  width: 3em;
+}
+
+.home .contactCard .phone img {
+  width: 2em;
+}
+
+.home .contactCard span {
+  margin-top: 0.2em;
+  margin-left: 10px;
+  font-size: 1.4em;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -298,7 +321,7 @@ body {
     font-size: 27px;
   }
 
-  .home #threeCube {
+  .home .contactCard {
     display: none;
   }
 }
@@ -465,14 +488,6 @@ body {
   height: 150%;
 }
 
-.about #aboutThree:hover {
-  cursor: grab;
-}
-
-.about #aboutThree:active {
-  cursor: grabbing;
-}
-
 .about .animated {
   color: #f66b0e;
   animation: letterHoverAnimation 0.7s ease-in-out;
@@ -564,7 +579,7 @@ body {
   .about {
     flex-direction: column;
   }
-  
+
   .about .left {
     margin-left: 40em;
     margin-right: 40em;
@@ -611,7 +626,7 @@ body {
     letter-spacing: 1px;
   }
 
-  .about .right{
+  .about .right {
     margin-left: 40em;
   }
 }
@@ -689,26 +704,26 @@ body {
   margin-top: 62px;
 }
 
-.skills .caption .skillsCaption{
+.skills .caption .skillsCaption {
   display: flex;
   flex-direction: row;
   overflow: hidden;
 }
 
-.skills .caption .certitifications{
+.skills .caption .certitifications {
   display: flex;
   flex-direction: row;
   overflow: hidden;
 }
 
-.skills .caption .and{
+.skills .caption .and {
   margin-left: 1em;
   margin-right: 1em;
   overflow: hidden;
 }
 
 .skills .caption h1 {
-  font-size: 80px;
+  font-size: 60px;
   cursor: context-menu;
   transition: color 0.4s ease-in-out;
   overflow: hidden;
@@ -834,11 +849,11 @@ body {
     display: none;
   }
 
-  .skills .caption .certitifications{
+  .skills .caption .certitifications {
     display: none;
   }
 
-  .skills .caption .and{
+  .skills .caption .and {
     display: none;
   }
 
@@ -866,36 +881,145 @@ body {
   width: 80em;
 }
 
-.experiences h1 {
-  margin: 0.5em;
-  font-size: 40px;
+.experiences .experienceCaption {
+  display: flex;
+  flex-direction: row;
   overflow: hidden;
 }
 
+.experiences .experienceCaption h1 {
+  font-size: 60px;
+  cursor: context-menu;
+  transition: color 0.4s ease-in-out;
+  overflow: hidden;
+}
+
+.experiences .experienceCaption .animated {
+  color: #f66b0e;
+  animation: letterHoverAnimation 0.7s ease-in-out;
+}
+
 .experiences .experienceContainer {
-  height: 90%;
-  width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
   color: black;
 }
 
-.experiences .experienceContainer .item {
-  background-color: whitesmoke;
-  height: 13em;
-  width: 85%;
-  margin: 0.5em 0.5em;
-  border-radius: 20px;
-  box-shadow: -1em 1.5em 1.5em rgba(2, 5, 53, 0.9);
-  transition: all 0.7s ease;
-  padding: 0 5px;
+.experiences .experienceContainer .timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.experiences .experienceContainer .item:hover {
-  transform: scale(1.07);
-  box-shadow: -1.5em 1.5em 1.5em rgba(2, 5, 53, 0.9);
+.experiences .experienceContainer .timeline::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  background-color: white;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+
+.experiences .experienceContainer .timeline .container {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+
+.experiences .experienceContainer .timeline .container::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -17px;
+  background-color: white;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.experiences .experienceContainer .timeline .left {
+  left: 0;
+}
+
+.experiences .experienceContainer .timeline .right {
+  left: 50%;
+}
+
+.experiences .experienceContainer .timeline .left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid white;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent white;
+}
+
+.experiences .experienceContainer .timeline .right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+}
+
+.experiences .experienceContainer .timeline .right::after {
+  left: -16px;
+}
+
+.experiences .experienceContainer .timeline .container .content {
+  padding: 20px 30px;
+  background-color: white;
+  position: relative;
+  border-radius: 6px;
+}
+
+.experiences .experienceContainer .timeline .container .content img{
+  width: 160px;
+}
+
+.experiences .experienceContainer .timeline .container .content ul{
+  list-style-type: circle;
+}
+
+@media screen and (max-width: 600px) {
+  .experiences .experienceContainer .timeline::after {
+    left: 31px;
+  }
+  .experiences .experienceContainer .timeline .container {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+  .experiences .experienceContainer .timeline .container::before {
+    left: 60px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+  }
+  .experiences .experienceContainer .timeline .right::after {
+    left: 15px;
+  }
+  .experiences .experienceContainer .timeline .left::after {
+    left: 15px;
+  }
+  .experiences .experienceContainer .timeline .right {
+    left: 0%;
+  }
 }
 
 /*----------------------------------------------- Projects ------------------------------*/
@@ -903,25 +1027,44 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  margin-top: 100px;
 }
 
 .projects {
   background-color: #0f1729;
   width: 80em;
+  align-items: center;
+  justify-content: center;
 }
 
-.projects h1 {
-  margin: 0.5em;
-  margin-left: 1.5em;
-  font-size: 40px;
-  margin-top: 2em;
+.projects .projectsCaption {
+  display: flex;
+  flex-direction: row;
   overflow: hidden;
+  align-items: center;
+  justify-content: center;
+}
+
+.projects .projectsCaption h1 {
+  font-size: 60px;
+  color: aliceblue;
+  cursor: context-menu;
+  transition: color 0.4s ease-in-out;
+  overflow: hidden;
+}
+
+.projects .projectsCaption .animated {
+  color: #f66b0e;
+  animation: letterHoverAnimation 0.7s ease-in-out;
 }
 
 .projects .projectContainer {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 .projects .projectContainer .item {
@@ -936,7 +1079,6 @@ body {
   align-items: center;
   text-align: center;
   justify-content: center;
-  cursor: pointer;
 }
 
 .projects .projectContainer .item img {
@@ -970,7 +1112,7 @@ body {
 /*------------- Scroll ----------------*/
 
 ::-webkit-scrollbar {
-  width: 0.3em;
+  width: 0.5em;
 }
 
 ::-webkit-scrollbar-track {

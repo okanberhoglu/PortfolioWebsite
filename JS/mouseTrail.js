@@ -24,7 +24,7 @@ class Particle {
     this.size = Math.random() * 2 + 0.3;
     this.speedX = Math.random() * 2 - 2;
     this.speedY = Math.random() * 2 - 2;
-    this.color = "#0F3352";
+    this.color = "#efefef";
   }
   update() {
     this.x += this.speedX;

@@ -13,7 +13,7 @@ renderer.setClearColor( 0x000000, 0 );
 document.getElementById("aboutThree").appendChild(renderer.domElement);
 
 const geometry = new THREE.TorusGeometry(20,4,16,100,10);
-const material = new THREE.MeshPhongMaterial();
+const material = new THREE.MeshPhysicalMaterial();
 const model = new THREE.Mesh(geometry, material);
 scene.add(model);
 
@@ -26,14 +26,14 @@ camera.position.x = 50;
 
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableZoom = false;
+controls.autoRotate = true;
+controls.autoRotateSpeed = 15;
+controls.enableRotate = false;
 
 
 function animate() {
   requestAnimationFrame(animate);
   controls.update();
-  model.rotateX(0.02);
-  model.rotateY(-0.02);
-  model.rotateZ(0.02);
   renderer.render(scene, camera);
 }
 animate();
