@@ -1,5 +1,6 @@
 const navbar = document.getElementsByClassName("navbar");
 const menu = document.getElementsByClassName("menu");
+const hamburger = document.querySelector(".hamburger");
 const menuSectionLinks = document.querySelectorAll(".menu-list a[href^='#']");
 const mobileMenuQuery = window.matchMedia("(max-width: 965px)");
 let scrollPosition = 0;
@@ -31,12 +32,20 @@ function unlockBodyScroll(position = scrollPosition) {
 function closeMenu(position = scrollPosition) {
   navbar[0].classList.remove("active");
   menu[0].classList.remove("activeMenu");
+  if (hamburger) {
+    hamburger.setAttribute("aria-expanded", "false");
+    hamburger.setAttribute("aria-label", "Open menu");
+  }
   unlockBodyScroll(position);
 }
 
 function openMenu() {
   navbar[0].classList.add("active");
   menu[0].classList.add("activeMenu");
+  if (hamburger) {
+    hamburger.setAttribute("aria-expanded", "true");
+    hamburger.setAttribute("aria-label", "Close menu");
+  }
   lockBodyScroll();
 }
 

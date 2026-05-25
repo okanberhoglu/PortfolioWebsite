@@ -143,6 +143,9 @@ a {
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
 }
 .navbar .hamburger span {
   width: 100%;
@@ -539,6 +542,27 @@ a {
   padding-top: var(--ticker-h);
 }
 
+/* Offset anchor scroll for fixed ticker + nav */
+#home,
+#aboutMe,
+#skills,
+#projects,
+#education,
+#experiences {
+  scroll-margin-top: calc(var(--ticker-h) + 60px);
+}
+
+@media (max-width: 965px) {
+  #home,
+  #aboutMe,
+  #skills,
+  #projects,
+  #education,
+  #experiences {
+    scroll-margin-top: calc(var(--ticker-h) + 52px);
+  }
+}
+
 /* =============================================
        HOME SECTION
     ============================================= */
@@ -619,7 +643,7 @@ a {
 .home .nameBox .lastName {
   margin-left: 0.22em;
 }
-.home h1.alpha {
+.home .nameBox .alpha {
   font-size: clamp(52px, 7vw, 90px);
 }
 .name-alias {
@@ -782,7 +806,7 @@ a {
   .home-inner {
     padding: 0 5vw;
   }
-  .home h1.alpha {
+  .home .nameBox .alpha {
     font-size: clamp(40px, 10vw, 60px);
   }
 }
@@ -922,71 +946,127 @@ a {
   background: var(--navy);
 }
 
-.skills-ticker-wrap {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-  padding: 12px 0;
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
-.skills-ticker-track {
-  display: flex;
-}
-.skills-ticker-row {
-  display: flex;
-  flex-shrink: 0;
-  gap: 14px;
-  animation: skills-scroll 25s linear infinite;
-  padding-right: 14px;
-}
-.skills-ticker-row:hover {
-  animation-play-state: paused;
-}
-.skills-ticker-row:hover {
-  animation-play-state: paused;
-}
-@keyframes skills-scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-.skill-chip {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
+
+.skill-category {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 14px 16px;
-  width: 180px;
-  height: 80px;
-  cursor: default;
-  transition: all 0.3s ease;
-  flex-shrink: 0;
-  font-size: 22px;
-  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 28px 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
-.skill-chip span {
-  font-size: 16px;
+
+.skill-category::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.skill-category:hover {
+  border-color: rgba(89, 130, 235, 0.3);
+  background: var(--surface-hover);
+}
+
+.skill-category:hover::before {
+  opacity: 1;
+}
+
+.skill-category-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.skill-category-label::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+
+.skill-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 8px 14px;
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+  cursor: default;
+}
+
+.skill-item:hover {
+  border-color: var(--accent);
+  background: rgba(89, 130, 235, 0.08);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(89, 130, 235, 0.15);
+}
+
+.skill-item img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.skill-item img[alt="ROS/ROS2"],
+.skill-item img[alt="Unity"] {
+  filter: brightness(0) invert(1);
+}
+
+.skill-item img[alt="ROS/ROS2"] {
+  width: auto;
+  height: 13px;
+}
+
+.skill-item span {
+  font-size: 13px;
   font-weight: 500;
-  color: #000000;
+  color: var(--text-primary);
   white-space: nowrap;
   letter-spacing: 0.02em;
 }
-.skill-chip:hover {
-  background: #7daacb;
-  border-color: var(--accent);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(89, 130, 235, 0.2);
-}
-.skill-chip img {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
+
+@media (max-width: 640px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* =============================================
@@ -1830,5 +1910,35 @@ footer {
   }
   100% {
     transform: translateY(-144px);
+  }
+}
+
+/* =============================================
+       REDUCED MOTION
+    ============================================= */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Ensure fade-in and reveal elements are immediately visible */
+  .fade-in {
+    opacity: 1;
+    transform: none;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .reveal-proj {
+    opacity: 1;
+    transform: none;
   }
 }

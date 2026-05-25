@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Three-axis gimbal digital twin project by Okan Berhoglu: mechanical design, embedded control, REST API communication, and live 3D synchronization."
+    />
+    <meta name="author" content="Okan Berhoğlu" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="../assets/ob_logo.png" type="image/png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../assets/apple-touch-icon.png"
+    />
+    <link rel="stylesheet" href="../CSS/main.css" />
+    <link rel="stylesheet" href="../CSS/gimbal.css" />
+    <title>Gimbal Digital Twin Project · Okan Berhoglu</title>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <!-- TICKER -->
+    <div class="ticker-wrap">
+      <div class="ticker-track">
+        <div class="ticker-group">
+          <span
+            >Available for work
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="M8 13s1.5 2 4 2 4-2 4-2" />
+              <line x1="9" y1="9" x2="9.01" y2="9" />
+              <line x1="15" y1="9" x2="15.01" y2="9" />
+            </svg>
+            okanberh@gmail.com
+          </span>
+          <span
+            >Available for work
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="M8 13s1.5 2 4 2 4-2 4-2" />
+              <line x1="9" y1="9" x2="9.01" y2="9" />
+              <line x1="15" y1="9" x2="15.01" y2="9" />
+            </svg>
+            okanberh@gmail.com
+          </span>
+          <span
+            >Available for work
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="M8 13s1.5 2 4 2 4-2 4-2" />
+              <line x1="9" y1="9" x2="9.01" y2="9" />
+              <line x1="15" y1="9" x2="15.01" y2="9" />
+            </svg>
+            okanberh@gmail.com
+          </span>
+        </div>
+        <div class="ticker-group" aria-hidden="true">
+          <span
+            >Available for work
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="M8 13s1.5 2 4 2 4-2 4-2" />
+              <line x1="9" y1="9" x2="9.01" y2="9" />
+              <line x1="15" y1="9" x2="15.01" y2="9" />
+            </svg>
+            okanberh@gmail.com
+          </span>
+          <span
+            >Available for work
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="M8 13s1.5 2 4 2 4-2 4-2" />
+              <line x1="9" y1="9" x2="9.01" y2="9" />
+              <line x1="15" y1="9" x2="15.01" y2="9" />
+            </svg>
+            okanberh@gmail.com
+          </span>
+          <span
+            >Available for work
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="M8 13s1.5 2 4 2 4-2 4-2" />
+              <line x1="9" y1="9" x2="9.01" y2="9" />
+              <line x1="15" y1="9" x2="15.01" y2="9" />
+            </svg>
+            okanberh@gmail.com
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOBILE NAVBAR -->
+    <div class="navbar" id="mobileNavbar">
+      <a class="desktop-nav-brand" href="../index.html">
+        <img class="brand-mark" src="../assets/ob_logo.png" alt="OB" />
+      </a>
+      <div class="hamburger" onclick="menuOpen()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+
+    <!-- DESKTOP NAV -->
+    <nav class="desktop-nav" id="desktopNav" aria-label="Primary">
+      <a class="desktop-nav-brand" href="../index.html">
+        <img class="brand-mark" src="../assets/ob_logo.png" alt="OB" />
+      </a>
+      <ul class="desktop-nav-links">
+        <li><a href="../index.html#home" class="desktop-nav-link">Home</a></li>
+        <li>
+          <a href="../index.html#aboutMe" class="desktop-nav-link">About</a>
+        </li>
+        <li>
+          <a href="../index.html#skills" class="desktop-nav-link">Skills</a>
+        </li>
+        <li>
+          <a href="../index.html#projects" class="desktop-nav-link">Projects</a>
+        </li>
+        <li>
+          <a href="../index.html#education" class="desktop-nav-link"
+            >Education</a
+          >
+        </li>
+        <li>
+          <a href="../index.html#experiences" class="desktop-nav-link"
+            >Experience</a
+          >
+        </li>
+      </ul>
+      <div class="desktop-nav-cta-group">
+        <a
+          href="https://www.linkedin.com/in/okan-berhoğlu-1073601a3/"
+          class="desktop-nav-cta"
+        >
+          <img
+            class="linkedin_img"
+            src="../assets/linkedin_logo.png"
+            alt="Linkedin"
+          />
+        </a>
+        <a href="https://github.com/okanberhoglu" class="desktop-nav-cta">
+          <img src="../assets/github_log.png" alt="Github" />
+        </a>
+        <a href="mailto:okanberh@gmail.com" class="desktop-nav-cta">
+          <img src="../assets/MailIcon.png" alt="Mail" />
+        </a>
+      </div>
+    </nav>
+
+    <!-- MOBILE SIDE MENU -->
+    <aside class="menu" id="sideMenu" aria-label="Mobile navigation">
+      <ul class="menu-list">
+        <li style="--i: 1">
+          <a href="../index.html#home"
+            ><span class="menu-num">01</span><span class="menu-text">Home</span
+            ><span class="menu-arrow">→</span></a
+          >
+        </li>
+        <li style="--i: 2">
+          <a href="../index.html#aboutMe"
+            ><span class="menu-num">02</span
+            ><span class="menu-text">About Me</span
+            ><span class="menu-arrow">→</span></a
+          >
+        </li>
+        <li style="--i: 3">
+          <a href="../index.html#skills"
+            ><span class="menu-num">03</span
+            ><span class="menu-text">Skills</span
+            ><span class="menu-arrow">→</span></a
+          >
+        </li>
+        <li style="--i: 4">
+          <a href="../index.html#projects"
+            ><span class="menu-num">04</span
+            ><span class="menu-text">Projects</span
+            ><span class="menu-arrow">→</span></a
+          >
+        </li>
+        <li style="--i: 5">
+          <a href="../index.html#education"
+            ><span class="menu-num">05</span
+            ><span class="menu-text">Education</span
+            ><span class="menu-arrow">→</span></a
+          >
+        </li>
+        <li style="--i: 6">
+          <a href="../index.html#experiences"
+            ><span class="menu-num">06</span
+            ><span class="menu-text">Experience</span
+            ><span class="menu-arrow">→</span></a
+          >
+        </li>
+      </ul>
+      <div class="menu-footer">
+        <div class="menu-social">
+          <a
+            class="menu-social-btn"
+            href="https://www.linkedin.com/in/okan-berhoğlu-1073601a3/"
+          >
+            <img
+              class="linkedin_img"
+              src="../assets/linkedin_logo.png"
+              alt="LinkedIn"
+            />
+          </a>
+          <a class="menu-social-btn" href="https://github.com/okanberhoglu">
+            <img src="../assets/github_log.png" alt="Github" />
+          </a>
+          <a class="menu-social-btn" href="mailto:okanberh@gmail.com">
+            <img src="../assets/MailIcon.png" alt="Mail" />
+          </a>
+        </div>
+        <a
+          href="../assets/OkanBerhoglu_CV.pdf"
+          target="_blank"
+          rel="noopener"
+          class="menu-cta"
+          >Get Resume</a
+        >
+      </div>
+    </aside>
+
+    <!-- PAGE CONTENT -->
+    <main class="proj-page">
+      <!-- HERO -->
+      <section class="proj-hero">
+        <div class="proj-hero-inner">
+          <a href="../index.html#projects" class="proj-back">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M19 12H5M12 5l-7 7 7 7" />
+            </svg>
+            Back to Projects
+          </a>
+          <div class="proj-hero-meta">
+            <h1 class="proj-hero-title">
+              Digital Twin Approach to Design and Development of a Gimbal
+            </h1>
+            <p class="proj-hero-subtitle">
+              A three-axis camera stabilization platform with a synchronized web-based digital twin.
+            </p>
+          </div>
+          <div class="proj-hero-img-wrap">
+            <img
+              src="../assets/Gimbal_proj_real.png"
+              alt="Gimbal project"
+              class="proj-hero-img"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTENT -->
+      <div class="proj-content-wrap">
+        <!-- OVERVIEW -->
+        <section class="proj-section reveal-proj">
+          <div class="proj-section-tag">Overview</div>
+          <h2 class="proj-section-title">Project Overview</h2>
+          <div class="proj-models-wrap" aria-hidden="true">
+            <div class="proj-macbook-wrap">
+              <div
+                id="macbookCanvas"
+                data-model="../assets/3D_models/Macbook%20Pro.glb"
+              ></div>
+            </div>
+            <div class="proj-models-connector">
+              <svg class="proj-conn-svg" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <filter id="conn-glow" x="-10%" y="-120%" width="120%" height="340%">
+                    <feGaussianBlur stdDeviation="2.5" result="blur"/>
+                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                  </filter>
+                  <marker id="arr" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+                    <path d="M0,0.5 L6,3.5 L0,6.5 Z" fill="rgba(89,130,235,0.95)"/>
+                  </marker>
+                </defs>
+                <!-- glow tracks -->
+                <line x1="8" y1="24" x2="112" y2="24" stroke="rgba(89,130,235,0.2)" stroke-width="7" filter="url(#conn-glow)"/>
+                <line x1="8" y1="56" x2="112" y2="56" stroke="rgba(89,130,235,0.2)" stroke-width="7" filter="url(#conn-glow)"/>
+                <!-- animated flow lines -->
+                <path class="conn-fwd" d="M 8 24 L 110 24" stroke="rgba(89,130,235,0.9)" stroke-width="1.8" stroke-dasharray="6 4" stroke-linecap="round" marker-end="url(#arr)"/>
+                <path class="conn-rev" d="M 112 56 L 10 56" stroke="rgba(89,130,235,0.9)" stroke-width="1.8" stroke-dasharray="6 4" stroke-linecap="round" marker-end="url(#arr)"/>
+                <!-- center verticals -->
+                <line x1="60" y1="24" x2="60" y2="35" stroke="rgba(89,130,235,0.3)" stroke-width="1" stroke-dasharray="2 2"/>
+                <line x1="60" y1="45" x2="60" y2="56" stroke="rgba(89,130,235,0.3)" stroke-width="1" stroke-dasharray="2 2"/>
+                <!-- center node -->
+                <circle cx="60" cy="40" r="5.5" fill="rgba(89,130,235,0.1)" stroke="rgba(89,130,235,0.55)" stroke-width="1.2"/>
+                <circle cx="60" cy="40" r="2.5" fill="rgba(89,130,235,0.8)"/>
+              </svg>
+            </div>
+            <div class="proj-gimbal-wrap">
+              <div id="gimbalCanvas"></div>
+            </div>
+          </div>
+          <p class="proj-section-text">
+            This project is a senior design project focused on developing a 3-DOF gimbal 
+            system integrated with a real-time digital twin. The project includes the mathematical 
+            modeling of the gimbal using rotation matrices and kinematic relations, mechanical design 
+            of the system in SOLIDWORKS, production of 3D-printed components, hardware integration with ESP32, 
+            MPU6050 IMU sensor, and BLDC motors, and the development of a web-based digital twin interface. 
+            Sensor data from the physical gimbal is transferred wirelessly to the virtual model, allowing the 
+            real and digital systems to move synchronously. This project demonstrates the use of digital twin 
+            technology for monitoring, visualization, and development of inertially stabilized platforms.
+          </p>
+          <p class="proj-section-text">
+            The final prototype uses a NodeMCU ESP-32S, an MPU6050
+            accelerometer/gyroscope, three MS5005V3 BLDC motors with
+            integrated encoders and drivers, a UART-TTL to RS485 converter, and
+            a 22V battery with voltage regulation. The ESP32 reads the IMU over
+            I2C, calculates the yaw, pitch, and roll motor targets from the
+            inverse kinematic model, drives the motors over an RS485 bus, and
+            exposes the current system state through a Wi-Fi REST API.
+          </p>
+        </section>
+
+        <!-- ARCHITECTURE -->
+        <section class="proj-section reveal-proj">
+          <div class="proj-section-tag">Architecture</div>
+          <h2 class="proj-section-title">System Architecture</h2>
+          <p class="proj-section-text">
+            The system is split into hardware and client layers. On the
+            hardware side, custom Arduino firmware on the ESP32 connects to the
+            local Wi-Fi network, reads IMU orientation data, computes the
+            required motor angles, and sends position commands to the motor bus.
+            It also serves JSON data through HTTP endpoints, including a
+            <code>/getAll</code> state endpoint used by the digital twin.
+            On the client side, a React application polls the ESP32 every 100
+            milliseconds and updates a Three.js model so the virtual gimbal
+            follows the physical prototype in real time.
+          </p>
+          <div class="proj-scheme-wrap">
+            <img
+              src="../assets/Gimbal_proj_scheme.png"
+              alt="System architecture: hardware (ESP32, MPU-6050, motors) connected via REST API to a React + Three.js web client"
+              class="proj-scheme-img"
+            />
+          </div>
+          <div class="proj-arch-grid">
+            <div class="proj-arch-card">
+              <div class="proj-arch-card-header">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+                </svg>
+                Hardware
+              </div>
+              <ul class="proj-arch-list">
+                <li><span>NodeMCU ESP-32S</span> — main controller, Wi-Fi station, Arduino firmware, and REST API server</li>
+                <li><span>MPU6050</span> — 6-axis IMU connected over I2C for base orientation estimation</li>
+                <li><span>MS5005V3 BLDC motors</span> — yaw, pitch, and roll axes with integrated encoders, drivers, and RS485 communication</li>
+                <li><span>Power system</span> — 22V battery supply stepped down to 5V for the ESP32 and converter</li>
+              </ul>
+            </div>
+            <div class="proj-arch-card">
+              <div class="proj-arch-card-header">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+                </svg>
+                Client
+              </div>
+              <ul class="proj-arch-list">
+                <li><span>React</span> — web interface for monitoring and commanding the gimbal</li>
+                <li><span>REST / JSON</span> — wireless data exchange between the physical prototype and browser client</li>
+                <li><span>Three.js</span> — animated 3D environment rendering the synchronized digital twin</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- FEATURES -->
+        <section class="proj-section reveal-proj">
+          <div class="proj-section-tag">Features</div>
+          <h2 class="proj-section-title">Key Features</h2>
+          <div class="proj-features-list">
+            <div class="proj-feature-item">
+              <div class="proj-feature-dot"></div>
+              <div class="proj-feature-text">
+                <strong>3-DOF kinematic model</strong> — rotation matrices define the base frame, platform frame, and inverse kinematics needed to convert IMU measurements into yaw, pitch, and roll motor angles.
+              </div>
+            </div>
+            <div class="proj-feature-item">
+              <div class="proj-feature-dot"></div>
+              <div class="proj-feature-text">
+                <strong>MS5005V3 BLDC motor control</strong> — three brushless motors with integrated encoders and drivers are addressed over an RS485 bus for independent yaw, pitch, and roll positioning.
+              </div>
+            </div>
+            <div class="proj-feature-item">
+              <div class="proj-feature-dot"></div>
+              <div class="proj-feature-text">
+                <strong>MPU6050 IMU integration</strong> — the accelerometer and gyroscope estimate base orientation through the ESP32's I2C connection, providing the input for stabilization.
+              </div>
+            </div>
+            <div class="proj-feature-item">
+              <div class="proj-feature-dot"></div>
+              <div class="proj-feature-text">
+                <strong>Wireless REST API</strong> — the ESP32 serves JSON state data over Wi-Fi and accepts client requests, decoupling the physical hardware from the browser application.
+              </div>
+            </div>
+            <div class="proj-feature-item">
+              <div class="proj-feature-dot"></div>
+              <div class="proj-feature-text">
+                <strong>Live digital twin</strong> — a React + Three.js application polls the ESP32, visualizes the current gimbal state, and can command the viewing angle so movement appears on both the 3D model and the actual prototype.
+              </div>
+            </div>
+            <div class="proj-feature-item">
+              <div class="proj-feature-dot"></div>
+              <div class="proj-feature-text">
+                <strong>SolidWorks mechanical design</strong> — the base and links were designed for 3D printing with attention to weight, balance, assembly, and motor loading.
+              </div>
+            </div>
+            <div class="proj-feature-item">
+              <div class="proj-feature-dot"></div>
+              <div class="proj-feature-text">
+                <strong>Prototype verification</strong> — testing confirmed camera stabilization and real-time communication between the physical gimbal and the digital twin, while identifying image processing and target tracking as future extensions.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TAGS -->
+        <section class="proj-section reveal-proj">
+          <div class="proj-tags-row">
+            <span>Mechanical Design</span>
+            <span>SolidWorks</span>
+            <span>ESP32 / Arduino</span>
+            <span>MPU-6050 IMU</span>
+            <span>BLDC Motors</span>
+            <span>RS485</span>
+            <span>REST API</span>
+            <span>React JS</span>
+            <span>Three.js</span>
+            <span>Digital Twin</span>
+            <span>Kinematic Model</span>
+            <span>Embedded Systems</span>
+          </div>
+        </section>
+
+        <!-- BACK LINK -->
+        <div class="proj-bottom-nav reveal-proj">
+          <a href="../index.html#projects" class="proj-back-btn">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M19 12H5M12 5l-7 7 7 7" />
+            </svg>
+            All Projects
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-name">Okan Berhoğlu</div>
+      <div class="footer-links">
+        <a href="../index.html#home">Home</a>
+        <a href="../index.html#aboutMe">About</a>
+        <a href="../index.html#skills">Skills</a>
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#education">Education</a>
+        <a href="../index.html#experiences">Experience</a>
+        <a href="mailto:okanberh@gmail.com">Contact</a>
+      </div>
+      <div class="footer-copy">
+        Built with HTML, CSS &amp; JS · © 2025 Okan Berhoğlu
+      </div>
+    </footer>
+
+    <script src="../JS/menuOpen.js"></script>
+    <script src="../JS/desktopNav.js"></script>
+    <script src="../JS/projReveal.js"></script>
+    <script type="module" src="../JS/macbookModel.js"></script>
+    <script type="module" src="../JS/gimbalModel.js"></script>
+  </body>
+</html>

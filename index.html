@@ -203,9 +203,9 @@
       <a class="desktop-nav-brand" href="#home">
         <img class="brand-mark" src="./assets/ob_logo.png" alt="OB">
       </a>
-      <div class="hamburger" onclick="menuOpen()">
+      <button class="hamburger" type="button" onclick="menuOpen()" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
-      </div>
+      </button>
     </div>
     <nav class="desktop-nav" aria-label="Primary">
       <a class="desktop-nav-brand" href="#home">
@@ -280,25 +280,25 @@
         <div class="home-left">
 
           <div class="hello fade-in">
-            <h1 class="alpha">H</h1><h1 class="alpha">e</h1><h1 class="alpha">l</h1>
-            <h1 class="alpha">l</h1><h1 class="alpha">o</h1><h1 class="alpha">,</h1>
+            <span class="alpha">H</span><span class="alpha">e</span><span class="alpha">l</span>
+            <span class="alpha">l</span><span class="alpha">o</span><span class="alpha">,</span>
             <span class="Iam">
-              <h1 class="alpha">I</h1><h1 class="alpha">'</h1><h1 class="alpha">m</h1>
+              <span class="alpha">I</span><span class="alpha">'</span><span class="alpha">m</span>
             </span>
           </div>
 
           <div class="nameBox fade-in">
             <h1 class="sr-only">Okan Berhoğlu</h1>
             <span class="name">
-              <h1 class="alpha">O</h1><h1 class="alpha">K</h1>
-              <h1 class="alpha">A</h1><h1 class="alpha">N</h1>
+              <span class="alpha">O</span><span class="alpha">K</span>
+              <span class="alpha">A</span><span class="alpha">N</span>
             </span>
             <span class="alpha">&nbsp;</span>
             <span class="alpha">&nbsp;</span>
             <span class="lastName">
-              <h1 class="alpha">B</h1><h1 class="alpha">E</h1><h1 class="alpha">R</h1>
-              <h1 class="alpha">H</h1><h1 class="alpha">O</h1><h1 class="alpha">G</h1>
-              <h1 class="alpha">L</h1><h1 class="alpha">U</h1>
+              <span class="alpha">B</span><span class="alpha">E</span><span class="alpha">R</span>
+              <span class="alpha">H</span><span class="alpha">O</span><span class="alpha">G</span>
+              <span class="alpha">L</span><span class="alpha">U</span>
             </span>
           </div>
 
@@ -340,9 +340,9 @@
         <div class="about-grid">
           <div class="about-text reveal">
             <div class="section-tag">About Me</div>
-            <div class="section-title">
-              <h1 class="alpha">M</h1><h1 class="alpha">e</h1><h1 class="alpha">,</h1>&nbsp;<h1 class="alpha">M</h1><h1 class="alpha">y</h1><h1 class="alpha">s</h1><h1 class="alpha">e</h1><h1 class="alpha">l</h1><h1 class="alpha">f</h1>&nbsp;<h1 class="alpha">&amp;</h1>&nbsp;<h1 class="alpha">I</h1>
-            </div>
+            <h2 class="section-title">
+              <span class="alpha">M</span><span class="alpha">e</span><span class="alpha">,</span>&nbsp;<span class="alpha">M</span><span class="alpha">y</span><span class="alpha">s</span><span class="alpha">e</span><span class="alpha">l</span><span class="alpha">f</span>&nbsp;<span class="alpha">&amp;</span>&nbsp;<span class="alpha">I</span>
+            </h2>
             <p class="about-bio">
             My name is Okan Berhoğlu, I am passionate about software development, robotics, and creating practical solutions in computer environments. I learned programming largely by myself, which helped me become a self-motivated and fast learner. I enjoy improving myself in different technical areas, from software engineering to robotics and artificial intelligence. Through my academic background and project experience, I have developed strong problem-solving skills and the ability to adapt quickly to new technologies. I am always eager to learn, build, and improve systems that combine creativity, engineering, and real-world applications.
             </p>
@@ -356,34 +356,37 @@
     <section id="skills">
       <div class="section-inner">
         <div class="section-tag reveal">Skills</div>
-        <div class="skills-ticker-wrap reveal">
-          <div class="skills-ticker-track">
-            <div class="skills-ticker-row">
-              <div class="skill-chip"><img src="./assets/Python.png" alt="Python"/><span>Python</span></div>
-              <div class="skill-chip"><img src="./assets/matlab.png" alt="Matlab"/><span>Matlab</span></div>
-              <div class="skill-chip"><img src="./assets/C-Sharp.png" alt="C#"/><span>C#</span></div>
-              <div class="skill-chip"><img src="./assets/java.png" alt="Java"/><span>Java</span></div>
-              <div class="skill-chip"><img src="./assets/React.png" alt="React JS"/><span>React JS</span></div>
-              <div class="skill-chip"><img src="./assets/SolidWorks_Logo.png" alt="SolidWorks"/><span>SolidWorks</span></div>
-              <div class="skill-chip"><img src="./assets/Ros_logo.png" alt="Ros"/><span>ROS/ROS2</span></div>
-              <div class="skill-chip"><img src="./assets/C++_Logo.png" alt="C++"/><span>C++</span></div>
-              <div class="skill-chip"><img src="./assets/cuda.png" alt="cuda"/><span>CUDA</span></div>
-              <div class="skill-chip"><img src="./assets/C_Programming_Language.png" alt="C"/><span>C</span></div>
-              <div class="skill-chip"><img src="./assets/arduino-icon.png" alt="Arduino"/><span>Arduino</span></div>
-              <div class="skill-chip"><img src="./assets/unity_logo.png" alt="Unity"/><span>Unity</span></div>
-              <!-- duplicate for seamless loop -->
-              <div class="skill-chip"><img src="./assets/Python.png" alt="Python"/><span>Python</span></div>
-              <div class="skill-chip"><img src="./assets/matlab.png" alt="Matlab"/><span>Matlab</span></div>
-              <div class="skill-chip"><img src="./assets/C-Sharp.png" alt="C#"/><span>C#</span></div>
-              <div class="skill-chip"><img src="./assets/java.png" alt="Java"/><span>Java</span></div>
-              <div class="skill-chip"><img src="./assets/React.png" alt="React JS"/><span>React JS</span></div>
-              <div class="skill-chip"><img src="./assets/SolidWorks_Logo.png" alt="SolidWorks"/><span>SolidWorks</span></div>
-              <div class="skill-chip"><img src="./assets/Ros_logo.png" alt="Ros"/><span>ROS/ROS2</span></div>
-              <div class="skill-chip"><img src="./assets/C++_Logo.png" alt="C++"/><span>C++</span></div>
-              <div class="skill-chip"><img src="./assets/cuda.png" alt="cuda"/><span>CUDA</span></div>
-              <div class="skill-chip"><img src="./assets/C_Programming_Language.png" alt="C"/><span>C</span></div>
-              <div class="skill-chip"><img src="./assets/arduino-icon.png" alt="Arduino"/><span>Arduino</span></div>
-              <div class="skill-chip"><img src="./assets/unity_logo.png" alt="Unity"/><span>Unity</span></div>
+        <div class="skills-grid">
+          <div class="skill-category reveal">
+            <div class="skill-category-label">Programming Languages</div>
+            <div class="skill-items">
+              <div class="skill-item"><img src="./assets/Python.png" alt="Python" loading="lazy"><span>Python</span></div>
+              <div class="skill-item"><img src="./assets/C++_Logo.png" alt="C++" loading="lazy"><span>C++</span></div>
+              <div class="skill-item"><img src="./assets/C_Programming_Language.png" alt="C" loading="lazy"><span>C</span></div>
+              <div class="skill-item"><img src="./assets/C-Sharp.png" alt="C#" loading="lazy"><span>C#</span></div>
+              <div class="skill-item"><img src="./assets/java.png" alt="Java" loading="lazy"><span>Java</span></div>
+            </div>
+          </div>
+          <div class="skill-category reveal">
+            <div class="skill-category-label">Robotics &amp; Embedded</div>
+            <div class="skill-items">
+              <div class="skill-item"><img src="./assets/Ros_logo.png" alt="ROS/ROS2" loading="lazy"><span>ROS/ROS2</span></div>
+              <div class="skill-item"><img src="./assets/arduino-icon.png" alt="Arduino" loading="lazy"><span>Arduino</span></div>
+              <div class="skill-item"><img src="./assets/cuda.png" alt="CUDA" loading="lazy"><span>CUDA</span></div>
+            </div>
+          </div>
+          <div class="skill-category reveal">
+            <div class="skill-category-label">Simulation &amp; CAD</div>
+            <div class="skill-items">
+              <div class="skill-item"><img src="./assets/matlab.png" alt="MATLAB" loading="lazy"><span>MATLAB</span></div>
+              <div class="skill-item"><img src="./assets/SolidWorks_Logo.png" alt="SolidWorks" loading="lazy"><span>SolidWorks</span></div>
+            </div>
+          </div>
+          <div class="skill-category reveal">
+            <div class="skill-category-label">Web &amp; Creative</div>
+            <div class="skill-items">
+              <div class="skill-item"><img src="./assets/React.png" alt="React JS" loading="lazy"><span>React JS</span></div>
+              <div class="skill-item"><img src="./assets/unity_logo.png" alt="Unity" loading="lazy"><span>Unity</span></div>
             </div>
           </div>
         </div>
@@ -399,15 +402,14 @@
           <div class="projects-viewport">
             <div class="projects-track" id="projectsTrack">
 
-              <div class="proj-card" data-title="Gimbal">
+              <div class="proj-card" data-title="Gimbal" onclick="window.location.href='projects/gimbal.html'">
                 <div class="proj-card-inner">
                   <div class="proj-card-img-placeholder">
                     <img class="proj-icon" src="./assets/Gimbal_project.png" alt="Gimbal" width="1126" height="1397" loading="lazy" decoding="async">
                   </div>
                   <div class="proj-card-body">
                     <div class="proj-tag">Mechanical · Electronics</div>
-                    <h3 class="proj-title">Gimbal</h3>
-                    <p class="proj-desc">Details coming soon.</p>
+                    <h3 class="proj-title">Digital Twin Approach to Design and Development of a Gimbal</h3>
                   </div>
                   <div class="proj-hover-cta">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -672,7 +674,7 @@
         <a href="#experiences">Experience</a>
         <a href="mailto:okanberh@gmail.com">Contact</a>
       </div>
-      <div class="footer-copy">Built with vanilla HTML, CSS &amp; JS · © 2025 Okan Berhoğlu</div>
+      <div class="footer-copy">Built with HTML, CSS &amp; JS · © 2025 Okan Berhoğlu</div>
     </footer>
     <script src="./JS/mouseTrail.js"></script>
     <script src="./JS/blobAnim.js"></script>
