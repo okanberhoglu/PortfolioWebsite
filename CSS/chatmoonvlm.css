@@ -1,0 +1,78 @@
+/* =============================================
+   CHATMOONVLM PROJECT PAGE — extra styles
+============================================= */
+
+.proj-hero-img-wrap {
+  max-height: none;
+  background: #0d0d0d;
+}
+
+.proj-hero-img {
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  object-position: center;
+}
+
+.proj-pipeline-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 32px 0;
+}
+
+.proj-pipeline-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.proj-pipeline-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: 40px;
+}
+
+.proj-pipeline-num {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(89, 130, 235, 0.12);
+  border: 1px solid rgba(89, 130, 235, 0.4);
+  color: rgba(89, 130, 235, 0.95);
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.proj-pipeline-connector {
+  width: 1px;
+  flex: 1;
+  min-height: 24px;
+  background: rgba(89, 130, 235, 0.2);
+  margin: 4px 0;
+}
+
+.proj-pipeline-body {
+  padding: 8px 0 28px;
+}
+
+.proj-pipeline-body strong {
+  display: block;
+  color: var(--text-primary, #f0f0f0);
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.proj-pipeline-body p {
+  color: var(--text-secondary, rgba(240,240,240,0.55));
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin: 0;
+}

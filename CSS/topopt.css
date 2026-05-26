@@ -2,6 +2,18 @@
    TOPOPT PROJECT PAGE — extra styles
 ============================================= */
 
+.proj-hero-img-wrap {
+  max-height: none;
+  background: #fff;
+}
+
+.proj-hero-img {
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  object-position: center;
+}
+
 .proj-video-wrap {
   position: relative;
   width: 100%;
@@ -10,6 +22,7 @@
   overflow: hidden;
   border: 1px solid var(--border);
   background: #000;
+  margin-top: 32px;
   margin-bottom: 32px;
 }
 

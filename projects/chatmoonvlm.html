@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Customizable laptop stand design software by Okan Berhoglu: topology optimization, Bezier surface modeling, MATLAB app development, and STL export."
+      content="ChatMoonVLM by Okan Berhoglu: a web-based Visual Question Answering application powered by the Moondream vision-language model, running locally on consumer hardware."
     />
     <meta name="author" content="Okan Berhoğlu" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,8 +23,8 @@
     />
     <link rel="stylesheet" href="../CSS/main.css" />
     <link rel="stylesheet" href="../CSS/projects.css" />
-    <link rel="stylesheet" href="../CSS/topopt.css" />
-    <title>Customizable Laptop Stand Design · Okan Berhoglu</title>
+    <link rel="stylesheet" href="../CSS/chatmoonvlm.css" />
+    <title>ChatMoonVLM · Okan Berhoglu</title>
   </head>
   <body>
     <!-- TICKER -->
@@ -301,17 +301,17 @@
             Back to Projects
           </a>
           <div class="proj-hero-meta">
-            <h1 class="proj-hero-title">
-              Customizable Laptop Stand Design App
-            </h1>
+            <h1 class="proj-hero-title">ChatMoonVLM</h1>
             <p class="proj-hero-subtitle">
-              A MATLAB design application that uses topology optimization and Bezier surface modeling to generate a parametric, 3D-printable laptop stand.
+              A web-based Visual Question Answering application powered by the
+              Moondream vision-language model — running locally, privately, on
+              consumer hardware.
             </p>
           </div>
           <div class="proj-hero-img-wrap">
             <img
-              src="../assets/PcHolder_app.png"
-              alt="Customizable laptop stand topology optimization project"
+              src="../assets/ChatMoonVLM_image_horizontal.png"
+              alt="ChatMoonVLM application interface"
               class="proj-hero-img"
             />
           </div>
@@ -325,62 +325,121 @@
           <div class="proj-section-tag">Overview</div>
           <h2 class="proj-section-title">Project Overview</h2>
           <p class="proj-section-text">
-            This project focuses on a customizable laptop stand for users who connect external monitors, keyboards, cable accessories, or cooling equipment
-            to a laptop. Instead of producing one fixed geometry, the work combines structural optimization and parametric modeling so the stand can be
-            adapted to different laptop sizes and user requirements.
+            ChatMoonVLM is a web-based Visual Question Answering (VQA) system
+            that lets users upload images and ask natural-language questions
+            about them through an interactive chat interface. The system is
+            built around Moondream, a small open-source vision-language model
+            designed to run efficiently on consumer-grade hardware — including
+            laptops and mobile devices — without requiring external API calls or
+            cloud services.
           </p>
           <p class="proj-section-text">
-            The workflow starts with a topology optimization study for a 16-inch laptop stand. The optimized load-bearing skeleton is then used as a
-            reference for a Bezier-surface solid model. A MATLAB application lets the user enter stand dimensions, preview the generated model, and export
-            the final design as an STL file ready for 3D printing.
+            This approach makes it a practical privacy-preserving alternative to
+            proprietary VLMs such as GPT-4V or Gemini, particularly in
+            scenarios where low latency or offline operation are priorities. The
+            application is built with the Streamlit framework and organized
+            around a modular, service-oriented architecture with persistent chat
+            history and in-memory image embedding caching.
           </p>
-           <div class="proj-video-wrap">
-            <iframe
-              src="https://www.youtube.com/embed/4DD53ulCNdk"
-              title="Customizable laptop stand design — project demo"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          </div>
+          <p class="proj-section-text">
+            The entire application is containerized with Docker. Moondream model
+            weights are baked into the Docker image at build time, so the
+            container starts instantly without any download step. The published
+            image is available on Docker Hub and runs with a single command,
+            mapping port 8501 for browser access.
+          </p>
         </section>
 
-        <!-- METHODOLOGY -->
+        <!-- ARCHITECTURE -->
         <section class="proj-section reveal-proj">
-          <div class="proj-section-tag">Methodology</div>
-          <h2 class="proj-section-title">Design Method</h2>
+          <div class="proj-section-tag">Architecture</div>
+          <h2 class="proj-section-title">System Architecture</h2>
           <p class="proj-section-text">
-            The project uses a topology optimization code derived from a 99-line MATLAB topology optimization implementation and later 3D modifications.
-            A grid-based finite element model was prepared for the stand, with mesh size selected to keep MATLAB runtime practical. The optimization used
-            fixed supports around the four stand feet, distributed loading on the inclined laptop support surface, additional loads where laptop feet would
-            contact the stand, and an outward load near the front lip to guide the anti-slip edge.
+            The application follows a modular, layered design with clear
+            separation between the UI, service, and model layers. The entry
+            point initializes session state, manages page navigation between the
+            main and chat pages, and ensures the model is loaded on startup. A
+            dedicated model installer script pulls a pinned Moondream revision
+            from Hugging Face Hub during Docker build, so the container ships
+            with weights already present.
           </p>
-          <div class="proj-arch-grid">
-            <div class="proj-arch-card">
-              <div class="proj-arch-card-header">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
-                </svg>
-                Topology Optimization
+          <div class="proj-pipeline-wrap">
+            <div class="proj-pipeline-step">
+              <div class="proj-pipeline-left">
+                <div class="proj-pipeline-num">1</div>
+                <div class="proj-pipeline-connector"></div>
               </div>
-              <ul class="proj-arch-list">
-                <li><span>Reference size</span> — optimization parameters were chosen around a 16-inch laptop stand layout</li>
-                <li><span>Meshing</span> — the design domain was converted into grid nodes and mesh elements for finite element analysis</li>
-                <li><span>Boundary conditions</span> — support points, laptop-contact forces, inclined surface loading, and front-lip loading shaped the result</li>
-                <li><span>Iteration tuning</span> — the maximum iteration count was set to 60 after trials to balance shape quality and surface stability</li>
-              </ul>
+              <div class="proj-pipeline-body">
+                <strong>Image upload</strong>
+                <p>User uploads an image on the main page. <code>ImageService</code> saves it to disk and returns a reference for display and model input.</p>
+              </div>
             </div>
+            <div class="proj-pipeline-step">
+              <div class="proj-pipeline-left">
+                <div class="proj-pipeline-num">2</div>
+                <div class="proj-pipeline-connector"></div>
+              </div>
+              <div class="proj-pipeline-body">
+                <strong>Embedding encoding</strong>
+                <p>The <code>Model</code> class encodes the uploaded image into a visual embedding once and caches it in memory, avoiding repeated encoding overhead for subsequent questions.</p>
+              </div>
+            </div>
+            <div class="proj-pipeline-step">
+              <div class="proj-pipeline-left">
+                <div class="proj-pipeline-num">3</div>
+                <div class="proj-pipeline-connector"></div>
+              </div>
+              <div class="proj-pipeline-body">
+                <strong>Question input</strong>
+                <p>The user types a natural-language question on the chat page. The input is sent to the model layer along with the cached image embedding.</p>
+              </div>
+            </div>
+            <div class="proj-pipeline-step">
+              <div class="proj-pipeline-left">
+                <div class="proj-pipeline-num">4</div>
+                <div class="proj-pipeline-connector"></div>
+              </div>
+              <div class="proj-pipeline-body">
+                <strong>Answer generation</strong>
+                <p>Moondream processes the question and cached embedding on GPU or CPU (auto-detected) and returns a natural-language answer.</p>
+              </div>
+            </div>
+            <div class="proj-pipeline-step">
+              <div class="proj-pipeline-left">
+                <div class="proj-pipeline-num">5</div>
+              </div>
+              <div class="proj-pipeline-body">
+                <strong>Session persistence</strong>
+                <p><code>ChatService</code> appends the Q&amp;A pair to a JSON session file. History survives application restarts and remains accessible from the main page.</p>
+              </div>
+            </div>
+          </div>
+          <div class="proj-arch-grid">
             <div class="proj-arch-card">
               <div class="proj-arch-card-header">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                   <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
                 </svg>
-                Parametric Modeling
+                UI Layer
               </div>
               <ul class="proj-arch-list">
-                <li><span>Bezier surfaces</span> — the optimized topology was rebuilt with bicubic Bezier surface patches</li>
-                <li><span>Surface continuity</span> — G0, G1, and C1 continuity were used where needed to connect neighboring patches cleanly</li>
-                <li><span>Parametric scale</span> — control point coordinates are scaled from user-entered stand dimensions</li>
-                <li><span>Manufacturing output</span> — the MATLAB app exports the generated laptop stand as an STL file</li>
+                <li><span>MainPage</span> — image upload, session history list, and "Start New Chat" button built with Streamlit components</li>
+                <li><span>ChatPage</span> — active chat interface rendering the image, Q&amp;A history, and question input field</li>
+                <li><span>Session state</span> — Streamlit session state tracks active page and loaded model across reruns</li>
+              </ul>
+            </div>
+            <div class="proj-arch-card">
+              <div class="proj-arch-card-header">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+                </svg>
+                Service &amp; Model Layer
+              </div>
+              <ul class="proj-arch-list">
+                <li><span>ChatService</span> — creates sessions, serializes and retrieves Q&amp;A history as JSON files on disk</li>
+                <li><span>ImageService</span> — saves uploaded images to disk and loads them for display or model input</li>
+                <li><span>Model (Moondream)</span> — wraps the VLM with GPU/CPU adaptive loading and in-memory embedding caching per image</li>
+                <li><span>Docker</span> — containerizes the full stack with model weights baked in at build time for zero-config deployment</li>
               </ul>
             </div>
           </div>
@@ -394,37 +453,43 @@
             <div class="proj-feature-item">
               <div class="proj-feature-dot"></div>
               <div class="proj-feature-text">
-                <strong>Custom laptop stand geometry</strong> — the design can be resized according to user-entered laptop and stand dimensions instead of being limited to one fixed model.
+                <strong>Local, privacy-preserving VQA</strong> — all inference runs on-device with no external API calls, making the system suitable for sensitive images or offline environments.
               </div>
             </div>
             <div class="proj-feature-item">
               <div class="proj-feature-dot"></div>
               <div class="proj-feature-text">
-                <strong>Topology-optimized structure</strong> — the load-bearing skeleton was guided by finite-element-based topology optimization using supports and forces that match the intended laptop stand use case.
+                <strong>Multi-turn chat per image</strong> — users can ask multiple follow-up questions about the same uploaded image within a single session without re-encoding the visual context.
               </div>
             </div>
             <div class="proj-feature-item">
               <div class="proj-feature-dot"></div>
               <div class="proj-feature-text">
-                <strong>Bezier surface reconstruction</strong> — the optimized form was converted into a smooth solid model using 78 Bezier surface patches.
+                <strong>Persistent chat history</strong> — all sessions are serialized to JSON and survive application restarts, letting users revisit previous image conversations from the main page.
               </div>
             </div>
             <div class="proj-feature-item">
               <div class="proj-feature-dot"></div>
               <div class="proj-feature-text">
-                <strong>Continuity-aware surface modeling</strong> — G0 continuity closes the surface network, while G1 and C1 continuity improve visual smoothness at selected patch transitions.
+                <strong>In-memory embedding caching</strong> — the image embedding is computed once per session and reused for all subsequent questions, significantly reducing per-query latency.
               </div>
             </div>
             <div class="proj-feature-item">
               <div class="proj-feature-dot"></div>
               <div class="proj-feature-text">
-                <strong>MATLAB user interface</strong> — the app provides dimension inputs, a helper visual, a preview graph, and file naming controls for export.
+                <strong>GPU/CPU adaptive loading</strong> — the model layer automatically detects available hardware and loads Moondream onto GPU when present, falling back to CPU transparently.
               </div>
             </div>
             <div class="proj-feature-item">
               <div class="proj-feature-dot"></div>
               <div class="proj-feature-text">
-                <strong>STL export</strong> — the generated model can be saved as an STL file for 3D printing after the user previews and approves the dimensions.
+                <strong>Modular service-oriented architecture</strong> — clean separation between the UI, ChatService, ImageService, and Model layers makes each component independently testable and replaceable.
+              </div>
+            </div>
+            <div class="proj-feature-item">
+              <div class="proj-feature-dot"></div>
+              <div class="proj-feature-text">
+                <strong>Zero-config Docker deployment</strong> — the full stack including model weights is baked into the Docker image at build time, so the application starts instantly with a single <code>docker run</code> command.
               </div>
             </div>
           </div>
@@ -433,16 +498,16 @@
         <!-- TAGS -->
         <section class="proj-section reveal-proj">
           <div class="proj-tags-row">
-            <span>Topology Optimization</span>
-            <span>Laptop Stand Design</span>
-            <span>Finite Element Analysis</span>
-            <span>Bezier Surfaces</span>
-            <span>Surface Modeling</span>
-            <span>Parametric Design</span>
-            <span>STL Export</span>
-            <span>3D Printing</span>
-            <span>MATLAB</span>
-            <span>MATLAB App</span>
+            <span>Python</span>
+            <span>Moondream VLM</span>
+            <span>Vision Language Model</span>
+            <span>Visual Question Answering</span>
+            <span>Streamlit</span>
+            <span>Docker</span>
+            <span>Hugging Face</span>
+            <span>GPU / CUDA</span>
+            <span>Computer Vision</span>
+            <span>Generative AI</span>
           </div>
         </section>
 

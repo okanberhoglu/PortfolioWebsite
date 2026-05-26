@@ -1139,7 +1139,7 @@ a {
     rgba(40, 65, 180, 0.08) 100%
   );
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   border-bottom: 1px solid var(--border);
   overflow: hidden;
