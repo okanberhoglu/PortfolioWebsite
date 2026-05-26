@@ -98,4 +98,12 @@
     height: 260px;
     width: 100%;
   }
+
+  .proj-macbook-wrap {
+    overflow: visible;
+  }
+
+  #macbookCanvas {
+    transform: translateY(-40px);
+  }
 }
