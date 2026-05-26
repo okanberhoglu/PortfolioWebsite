@@ -8,6 +8,6 @@ const projObserver = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.12 },
+  { threshold: 0.05 },
 );
 revealProjEls.forEach((el) => projObserver.observe(el));
