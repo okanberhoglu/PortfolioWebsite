@@ -1,9 +1,21 @@
 let projIndex = 0;
 const track = document.getElementById("projectsTrack");
 const cards = track ? track.querySelectorAll(".proj-card") : [];
-const dots = document.querySelectorAll(".proj-dot");
+const dotsContainer = document.getElementById("projDots");
 const leftArrow = document.querySelector(".proj-arrow-left");
 const rightArrow = document.querySelector(".proj-arrow-right");
+
+function renderDots() {
+  if (!dotsContainer) return;
+  const count = Math.max(1, cards.length - getVisibleCount() + 1);
+  dotsContainer.innerHTML = "";
+  for (let i = 0; i < count; i++) {
+    const span = document.createElement("span");
+    span.className = "proj-dot" + (i === projIndex ? " active" : "");
+    span.onclick = () => goToProject(i);
+    dotsContainer.appendChild(span);
+  }
+}
 
 function getVisibleCount() {
   const vw = document.querySelector(".projects-viewport");
@@ -30,7 +42,7 @@ function updateSlider() {
 
   clampProjectIndex();
   track.style.transform = `translateX(-${projIndex * getSlideStep()}px)`;
-  dots.forEach((d, i) => d.classList.toggle("active", i === projIndex));
+  renderDots();
 
   const needsSlider = cards.length > getVisibleCount();
   const arrowDisplay = needsSlider ? "flex" : "none";
