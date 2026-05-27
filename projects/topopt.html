@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Customizable laptop stand design software by Okan Berhoglu: topology optimization, Bezier surface modeling, MATLAB app development, and STL export."
+      content="Customizable laptop stand MATLAB App by Okan Berhoglu: topology optimization, Bezier surface modeling and STL export for 3D printing."
     />
     <meta name="author" content="Okan Berhoğlu" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="../CSS/main.css" />
     <link rel="stylesheet" href="../CSS/projects.css" />
     <link rel="stylesheet" href="../CSS/topopt.css" />
-    <title>Customizable Laptop Stand Design · Okan Berhoglu</title>
+    <title>Customizable Laptop Stand MATLAB App · Okan Berhoglu</title>
   </head>
   <body>
     <!-- TICKER -->
@@ -302,10 +302,10 @@
           </a>
           <div class="proj-hero-meta">
             <h1 class="proj-hero-title">
-              Customizable Laptop Stand Design App
+              Customizable Laptop Stand MATLAB App
             </h1>
             <p class="proj-hero-subtitle">
-              A MATLAB design application that uses topology optimization and Bezier surface modeling to generate a parametric, 3D-printable laptop stand.
+              A MATLAB App that uses topology optimization and Bezier surface modeling to generate a parametric, 3D-printable laptop stand.
             </p>
           </div>
           <div class="proj-hero-img-wrap">
@@ -325,14 +325,14 @@
           <div class="proj-section-tag">Overview</div>
           <h2 class="proj-section-title">Project Overview</h2>
           <p class="proj-section-text">
-            This project focuses on a customizable laptop stand for users who connect external monitors, keyboards, cable accessories, or cooling equipment
-            to a laptop. Instead of producing one fixed geometry, the work combines structural optimization and parametric modeling so the stand can be
-            adapted to different laptop sizes and user requirements.
+            This project presents a MATLAB App for designing a customizable laptop stand for users who connect external monitors, keyboards, cable accessories,
+            or cooling equipment to a laptop. Instead of producing one fixed geometry, the work combines structural optimization and parametric modeling so
+            the stand can be adapted to different laptop sizes and user requirements.
           </p>
           <p class="proj-section-text">
             The workflow starts with a topology optimization study for a 16-inch laptop stand. The optimized load-bearing skeleton is then used as a
-            reference for a Bezier-surface solid model. A MATLAB application lets the user enter stand dimensions, preview the generated model, and export
-            the final design as an STL file ready for 3D printing.
+            reference for a Bezier-surface solid model. The MATLAB App lets the user enter stand dimensions, preview the generated model, and export
+            the final design as an STL file ready for 3D printing. The demo video below is in Turkish and shows how the application works step by step.
           </p>
            <div class="proj-video-wrap">
             <iframe
@@ -349,10 +349,11 @@
           <div class="proj-section-tag">Methodology</div>
           <h2 class="proj-section-title">Design Method</h2>
           <p class="proj-section-text">
-            The project uses a topology optimization code derived from a 99-line MATLAB topology optimization implementation and later 3D modifications.
+            The project uses a topology optimization code derived from a MATLAB topology optimization implementation and later 3D modifications.
             A grid-based finite element model was prepared for the stand, with mesh size selected to keep MATLAB runtime practical. The optimization used
             fixed supports around the four stand feet, distributed loading on the inclined laptop support surface, additional loads where laptop feet would
-            contact the stand, and an outward load near the front lip to guide the anti-slip edge.
+            contact the stand, and an outward load near the front lip to guide the anti-slip edge. The resulting geometry is then connected to the MATLAB App
+            so users can create different stand sizes through a simple interface.
           </p>
           <div class="proj-arch-grid">
             <div class="proj-arch-card">
@@ -380,7 +381,7 @@
                 <li><span>Bezier surfaces</span> — the optimized topology was rebuilt with bicubic Bezier surface patches</li>
                 <li><span>Surface continuity</span> — G0, G1, and C1 continuity were used where needed to connect neighboring patches cleanly</li>
                 <li><span>Parametric scale</span> — control point coordinates are scaled from user-entered stand dimensions</li>
-                <li><span>Manufacturing output</span> — the MATLAB app exports the generated laptop stand as an STL file</li>
+                <li><span>Manufacturing output</span> — the MATLAB App exports the generated laptop stand as an STL file</li>
               </ul>
             </div>
           </div>
@@ -418,7 +419,7 @@
             <div class="proj-feature-item">
               <div class="proj-feature-dot"></div>
               <div class="proj-feature-text">
-                <strong>MATLAB user interface</strong> — the app provides dimension inputs, a helper visual, a preview graph, and file naming controls for export.
+                <strong>MATLAB user interface</strong> — the MATLAB App provides dimension inputs, a helper visual, a preview graph, and file naming controls for export.
               </div>
             </div>
             <div class="proj-feature-item">
