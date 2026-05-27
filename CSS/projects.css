@@ -222,6 +222,67 @@
   letter-spacing: 0.04em;
 }
 
+/* ---- PROJECT LINKS ---- */
+.proj-links-row {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.proj-link-btn {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+  padding: 20px 28px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.proj-link-btn:hover {
+  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 8px 22px var(--accent-glow);
+}
+
+.proj-link-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: brightness(0) invert(1);
+  opacity: 0.75;
+  transition: opacity 0.25s ease;
+}
+
+.proj-link-btn:hover .proj-link-icon {
+  opacity: 1;
+}
+
+.proj-link-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.proj-link-title {
+  font-size: 15.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #fff;
+}
+
+.proj-link-sub {
+  font-size: 13px;
+  font-weight: 400;
+  opacity: 0.65;
+}
+
 /* ---- BOTTOM NAV ---- */
 .proj-bottom-nav {
   padding-top: 16px;
@@ -351,6 +412,10 @@
 
 /* ---- RESPONSIVE ---- */
 @media (max-width: 768px) {
+  .proj-links-row {
+    flex-direction: column;
+  }
+
   .proj-hero-img-wrap {
     max-height: 280px;
     border-radius: 16px 16px 0 0;
