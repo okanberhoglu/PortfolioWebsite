@@ -324,30 +324,77 @@
         <section class="proj-section reveal-proj">
           <div class="proj-section-tag">Overview</div>
           <h2 class="proj-section-title">Project Overview</h2>
-          <p class="proj-section-text">
-            ChatMoonVLM is a web-based Visual Question Answering (VQA) system
-            that lets users upload images and ask natural-language questions
-            about them through an interactive chat interface. The system is
-            built around Moondream, a small open-source vision-language model
-            designed to run efficiently on consumer-grade hardware — including
-            laptops and mobile devices — without requiring external API calls or
-            cloud services.
-          </p>
-          <p class="proj-section-text">
-            This approach makes it a practical privacy-preserving alternative to
-            proprietary VLMs such as GPT-4V or Gemini, particularly in
-            scenarios where low latency or offline operation are priorities. The
-            application is built with the Streamlit framework and organized
-            around a modular, service-oriented architecture with persistent chat
-            history and in-memory image embedding caching.
-          </p>
-          <p class="proj-section-text">
-            The entire application is containerized with Docker. Moondream model
-            weights are baked into the Docker image at build time, so the
-            container starts instantly without any download step. The published
-            image is available on Docker Hub and runs with a single command,
-            mapping port 8501 for browser access.
-          </p>
+          <div class="proj-overview-wrap">
+            <div class="proj-overview-text">
+              <p class="proj-section-text">
+                ChatMoonVLM is a web-based Visual Question Answering (VQA) system
+                that lets users upload images and ask natural-language questions
+                about them through an interactive chat interface. The system is
+                built around Moondream, a small open-source vision-language model
+                designed to run efficiently on consumer-grade hardware — including
+                laptops and mobile devices — without requiring external API calls or
+                cloud services.
+              </p>
+              <p class="proj-section-text">
+                This approach makes it a practical privacy-preserving alternative to
+                proprietary VLMs such as GPT-4V or Gemini, particularly in
+                scenarios where low latency or offline operation are priorities. The
+                application is built with the Streamlit framework and organized
+                around a modular, service-oriented architecture with persistent chat
+                history and in-memory image embedding caching.
+              </p>
+              <p class="proj-section-text">
+                The entire application is containerized with Docker. Moondream model
+                weights are baked into the Docker image at build time, so the
+                container starts instantly without any download step. The published
+                image is available on Docker Hub and runs with a single command,
+                mapping port 8501 for browser access.
+              </p>
+            </div>
+
+            <!-- CHAT ANIMATION DEMO -->
+            <div class="chat-anim-stage">
+              <aside class="chat-anim" aria-label="ChatMoonVLM demo conversation">
+                <div class="chat-anim-header">
+                  <span class="chat-anim-avatar" aria-hidden="true">
+                    <span class="chat-anim-status-dot"></span>
+                  </span>
+                  <span class="chat-anim-headline">
+                    <span class="chat-anim-title">ChatMoonVLM</span>
+                    <span class="chat-anim-subtitle">Local vision assistant</span>
+                  </span>
+                  <span class="chat-anim-model">VLM</span>
+                </div>
+                <div class="chat-anim-image-wrap">
+                  <img
+                    src="../assets/chat_anim_image.png"
+                    alt="Wolf and bison in a snowy forest"
+                    class="chat-anim-image"
+                  />
+                  <span class="chat-anim-image-label">Uploaded image</span>
+                </div>
+                <div class="chat-anim-messages" id="chatAnimMessages"></div>
+                <div class="chat-anim-composer" aria-hidden="true">
+                  <span class="chat-anim-composer-text">Ask about this image</span>
+                  <span class="chat-anim-send">
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="m22 2-7 20-4-9-9-4Z" />
+                      <path d="M22 2 11 13" />
+                    </svg>
+                  </span>
+                </div>
+              </aside>
+            </div>
+          </div>
         </section>
 
         <!-- ARCHITECTURE -->
@@ -549,5 +596,6 @@
     <script src="../JS/menuOpen.js"></script>
     <script src="../JS/desktopNav.js"></script>
     <script src="../JS/projReveal.js"></script>
+    <script src="../JS/chatAnim.js"></script>
   </body>
 </html>
