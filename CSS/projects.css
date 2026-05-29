@@ -2,6 +2,123 @@
    SHARED PROJECT PAGE STYLES
 ============================================= */
 
+/* ---- NAV BACK BUTTON ---- */
+.navbar-back-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+.navbar-back-btn:hover {
+  color: var(--accent-light);
+  transform: translateX(-2px);
+}
+.navbar-back-btn--desktop {
+  gap: 7px;
+  padding: 9px 16px;
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  transform: none;
+}
+.navbar-back-btn--desktop:hover {
+  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.navbar--project {
+  justify-content: space-between;
+}
+
+.navbar--project .desktop-nav-brand {
+  margin-right: auto;
+}
+
+.navbar--project .project-back-button {
+  position: relative;
+  display: block;
+  flex: 0 0 26px;
+  width: 26px;
+  height: 20px;
+}
+
+.navbar--project .project-back-button span {
+  position: absolute;
+  left: 0;
+  right: auto;
+  display: block;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+  transform-origin: left center;
+  animation: projectBackArrow 0.45s ease forwards;
+}
+
+.navbar--project .project-back-button span:first-child {
+  top: 3px;
+  width: 52%;
+  animation-name: projectBackArrowTop;
+}
+
+.navbar--project .project-back-button span:nth-child(2) {
+  top: 9px;
+  width: 100%;
+}
+
+.navbar--project .project-back-button span:last-child {
+  top: 15px;
+  width: 52%;
+  animation-name: projectBackArrowBottom;
+}
+
+.navbar--project .project-back-button:hover span:nth-child(2),
+.navbar--project .project-back-button:focus-visible span:nth-child(2) {
+  transform: translateX(-4px);
+}
+
+.navbar--project .project-back-button:hover span:first-child,
+.navbar--project .project-back-button:focus-visible span:first-child {
+  transform: translateX(-3px) translateY(6px) rotate(-45deg);
+}
+
+.navbar--project .project-back-button:hover span:last-child,
+.navbar--project .project-back-button:focus-visible span:last-child {
+  transform: translateX(-3px) translateY(-6px) rotate(45deg);
+}
+
+@keyframes projectBackArrow {
+  from {
+    transform: scaleX(0.55);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes projectBackArrowTop {
+  from {
+    transform: translateX(6px) rotate(0deg);
+  }
+  to {
+    transform: translateY(6px) rotate(-45deg);
+  }
+}
+
+@keyframes projectBackArrowBottom {
+  from {
+    transform: translateX(6px) rotate(0deg);
+  }
+  to {
+    transform: translateY(-6px) rotate(45deg);
+  }
+}
+
 .proj-page {
   padding-top: calc(var(--ticker-h) + 64px);
   min-height: 100vh;
