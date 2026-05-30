@@ -39,3 +39,5 @@ build/
 
 .claude/
 .claude
+.codex
+.agents
